@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bot Check</title>
+
+    <style>
+        body {
+            background-color: #f3e5f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background-color: #6a1b9a;
+            padding: 20px;
+            color: white;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .img-box {
+            border: 3px solid transparent;
+            border-radius: 8px;
+            padding: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .img-box:hover {
+            border-color: #4a148c;
+        }
+        img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        #message {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            background-color: #ce93d8;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Verification Required</h1>
+</header>
+
+<section>
+    <p>Click the <strong>cat picture</strong> to continue to the calculator.</p>
+
+    <div class="images">
+        <div class="img-box" onclick="check('cat')">
+            <img src="cat1.jpg" alt="Cat">
+        </div>
+
+        <div class="img-box" onclick="check('dog')">
+            <img src="dog1.jpg" alt="Dog">
+        </div>
+
+        <div class="img-box" onclick="check('car')">
+            <img src="car1.jpg" alt="Car">
+        </div>
+
+        <div class="img-box" onclick="check('bird')">
+            <img src="bird1.jpg" alt="Bird">
+        </div>
+    </div>
+
+    <p id="message"></p>
+</section>
+
+<footer>
+    <p>Human Verification System</p>
+</footer>
+
+<script>
+function check(choice) {
+    const msg = document.getElementById("message");
+
+    if (choice === "cat") {
+        msg.style.color = "green";
+        msg.textContent = "✔ Verified! Redirecting...";
+        setTimeout(() => {
+            window.location.href = "calculator.html";
+        }, 1200);
+    } else {
+        msg.style.color = "red";
+        msg.textContent = "✘ Wrong image. Try again.";
+    }
+}
+</script>
+
+</body>
+</html>
